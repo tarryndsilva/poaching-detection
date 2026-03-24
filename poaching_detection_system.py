@@ -22,15 +22,21 @@ yolo_model = YOLO(os.path.join(MODEL_DIR, "yolo11n.pt"))
 
 gunshot_model = models.Sequential([
     layers.Input(shape=(1024,)),
-    layers.Dense(256, activation="relu"),
+    layers.Dense(512, activation='relu'),
+    layers.BatchNormalization(),
+    layers.Dropout(0.4),
+
+    layers.Dense(256, activation='relu'),
+    layers.BatchNormalization(),
     layers.Dropout(0.3),
-    layers.Dense(128, activation="relu"),
-    layers.Dropout(0.3),
-    layers.Dense(64, activation="relu"),
-    layers.Dense(2, activation="softmax")
+
+    layers.Dense(128, activation='relu'),
+    layers.Dropout(0.2),
+
+    layers.Dense(2, activation='softmax')
 ])
 
-gunshot_model.load_weights(os.path.join(MODEL_DIR, "gunshot_detection_model.h5"))
+gunshot_model.load_weights(os.path.join(MODEL_DIR, "gunshot_detection_model_sliding.h5"))
 label_encoder = joblib.load(os.path.join(MODEL_DIR, "label_encoder.pkl"))
 yamnet_model = hub.load("https://tfhub.dev/google/yamnet/1")
 
