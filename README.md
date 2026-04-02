@@ -1,4 +1,4 @@
-# Intelligent Poaching Detection System using Audio-Visual Deep Learning
+# Intelligent Poaching Detection System using Audio-Visual Deep Learning 
 
 ## Overview
 This project presents an intelligent, multi-modal surveillance system designed to detect potential wildlife poaching activities through the combined use of audio and visual deep learning models. The system integrates gunshot detection using audio classification with human detection using computer vision, enabling a more robust and reliable approach to identifying suspicious events in protected environments.
